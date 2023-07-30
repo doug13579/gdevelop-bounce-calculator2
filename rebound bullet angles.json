@@ -282,38 +282,7 @@
           ]
         }
       ],
-      "variables": [
-        {
-          "name": "Variable",
-          "type": "structure",
-          "children": [
-            {
-              "folded": true,
-              "name": "ChildVariable",
-              "type": "string",
-              "value": ""
-            },
-            {
-              "folded": true,
-              "name": "ChildVariable2",
-              "type": "string",
-              "value": ""
-            },
-            {
-              "folded": true,
-              "name": "ChildVariable3",
-              "type": "string",
-              "value": ""
-            },
-            {
-              "folded": true,
-              "name": "ChildVariable4",
-              "type": "string",
-              "value": ""
-            }
-          ]
-        }
-      ],
+      "variables": [],
       "instances": [
         {
           "angle": 0,
@@ -341,38 +310,6 @@
           "x": 641,
           "y": 375,
           "zOrder": 2,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "depth": 0,
-          "height": 93,
-          "layer": "",
-          "name": "wall",
-          "persistentUuid": "c70451a0-948b-450c-aa86-82dc6767b964",
-          "width": 25,
-          "x": 215,
-          "y": 163,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "depth": 0,
-          "height": 578,
-          "layer": "",
-          "name": "wall",
-          "persistentUuid": "c648c6ad-a418-48a5-afe7-38212fd6acef",
-          "width": 35,
-          "x": 3,
-          "y": 3,
-          "zOrder": 3,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -413,13 +350,13 @@
           "angle": 0,
           "customSize": true,
           "depth": 0,
-          "height": 81,
+          "height": 128,
           "layer": "",
           "name": "wall",
           "persistentUuid": "1e96e784-380e-464c-a895-2b035cd48afa",
-          "width": 135,
-          "x": 107,
-          "y": 259,
+          "width": 28,
+          "x": 243,
+          "y": 210,
           "zOrder": 3,
           "numberProperties": [],
           "stringProperties": [],
@@ -465,8 +402,8 @@
           "name": "wall",
           "persistentUuid": "ae470577-8d90-4cb9-babb-43cd64c959d4",
           "width": 21,
-          "x": 741,
-          "y": 27,
+          "x": 736,
+          "y": 24,
           "zOrder": 3,
           "numberProperties": [],
           "stringProperties": [],
@@ -530,6 +467,53 @@
           "x": 316,
           "y": 503,
           "zOrder": 14,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 0,
+          "height": 81,
+          "layer": "",
+          "name": "wall",
+          "persistentUuid": "9cd589cd-0639-46e9-b78a-04f51289b668",
+          "width": 135,
+          "x": 107,
+          "y": 259,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "NewText",
+          "persistentUuid": "d060ed75-8b89-4ca7-9da1-f99d512466cc",
+          "width": 0,
+          "x": 618,
+          "y": 57,
+          "zOrder": 15,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 0,
+          "height": 575,
+          "layer": "",
+          "name": "wall",
+          "persistentUuid": "7ae08d29-8f3a-4725-9874-6d875c2cf9e2",
+          "width": 21,
+          "x": 2,
+          "y": 4,
+          "zOrder": 3,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -1220,7 +1204,7 @@
             "BarLeftPadding": 31,
             "BarRightPadding": 31,
             "InitialValue": 3,
-            "MinValue": 1
+            "MinValue": 0
           },
           "childrenContent": {
             "Background": {
@@ -1269,6 +1253,28 @@
               "width": 63
             }
           }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "NewText",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Text",
+          "font": "",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 0,
+            "g": 0,
+            "r": 0
+          }
         }
       ],
       "events": [
@@ -1299,6 +1305,7 @@
           ]
         },
         {
+          "disabled": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -1526,6 +1533,15 @@
                     "BouncesSlider",
                     ""
                   ]
+                },
+                {
+                  "type": {
+                    "value": "DraggableBehavior::Dragged"
+                  },
+                  "parameters": [
+                    "wall",
+                    "Draggable"
+                  ]
                 }
               ]
             },
@@ -1564,6 +1580,15 @@
                 "",
                 "BouncesSlider"
               ]
+            },
+            {
+              "type": {
+                "value": "AjoutObjConcern"
+              },
+              "parameters": [
+                "",
+                "wall"
+              ]
             }
           ],
           "actions": [
@@ -1573,6 +1598,16 @@
               },
               "parameters": [
                 "NewShapePainter"
+              ]
+            },
+            {
+              "type": {
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "NewText",
+                "=",
+                "\"\""
               ]
             }
           ],
@@ -1643,6 +1678,16 @@
                         "Variable(calc.newX)",
                         "Variable(calc.newY)",
                         "3"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TextObject::String"
+                      },
+                      "parameters": [
+                        "NewText",
+                        "+",
+                        "VariableString(calc.status)+NewLine()"
                       ]
                     }
                   ]
@@ -14521,6 +14566,15 @@
                     "=",
                     "GetArgumentAsNumber(\"Angle\")"
                   ]
+                },
+                {
+                  "type": {
+                    "value": "SetSceneVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "calc.status",
+                    ""
+                  ]
                 }
               ]
             },
@@ -14566,7 +14620,7 @@
                       "parameters": [
                         "x",
                         ">=",
-                        "wall.BoundingBoxRight()"
+                        "wall.BoundingBoxRight() -5"
                       ]
                     }
                   ],
@@ -14593,7 +14647,7 @@
                       "parameters": [
                         "x",
                         "<=",
-                        "wall.BoundingBoxLeft()"
+                        "wall.BoundingBoxLeft() +5"
                       ]
                     }
                   ],
