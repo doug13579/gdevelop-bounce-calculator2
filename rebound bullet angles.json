@@ -14607,6 +14607,15 @@
                     "=",
                     "wall.Angle()"
                   ]
+                },
+                {
+                  "type": {
+                    "value": "SetSceneVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "calc.status",
+                    "True"
+                  ]
                 }
               ],
               "events": [
@@ -14618,48 +14627,76 @@
                         "value": "VarScene"
                       },
                       "parameters": [
-                        "x",
+                        "y",
                         ">=",
-                        "wall.BoundingBoxRight() -5"
+                        "wall.BoundingBoxTop()"
                       ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "ModVarScene"
-                      },
-                      "parameters": [
-                        "calc.newWallAngle",
-                        "+",
-                        "90"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
+                    },
                     {
                       "type": {
                         "value": "VarScene"
                       },
                       "parameters": [
-                        "x",
+                        "y",
                         "<=",
-                        "wall.BoundingBoxLeft() +5"
+                        "wall.BoundingBoxBottom()"
                       ]
                     }
                   ],
-                  "actions": [
+                  "actions": [],
+                  "events": [
                     {
-                      "type": {
-                        "value": "ModVarScene"
-                      },
-                      "parameters": [
-                        "calc.newWallAngle",
-                        "-",
-                        "90"
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "VarScene"
+                          },
+                          "parameters": [
+                            "x",
+                            ">=",
+                            "wall.CenterX()"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "calc.newWallAngle",
+                            "+",
+                            "90"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "VarScene"
+                          },
+                          "parameters": [
+                            "x",
+                            "<=",
+                            "wall.CenterX()"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "calc.newWallAngle",
+                            "-",
+                            "90"
+                          ]
+                        }
                       ]
                     }
                   ]
