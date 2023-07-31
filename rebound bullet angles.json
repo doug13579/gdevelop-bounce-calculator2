@@ -1607,7 +1607,7 @@
               "parameters": [
                 "NewText",
                 "=",
-                "\"\""
+                "\"raycast status\" + NewLine()"
               ]
             }
           ],
@@ -1640,6 +1640,16 @@
                     "Variable(calc.newX)",
                     "Variable(calc.newY)",
                     "3"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "NewText",
+                    "+",
+                    "VariableString(calc.status)+NewLine()"
                   ]
                 }
               ]
@@ -14629,7 +14639,7 @@
                       "parameters": [
                         "y",
                         ">=",
-                        "wall.BoundingBoxTop()"
+                        "wall.BoundingBoxTop()+2"
                       ]
                     },
                     {
@@ -14639,7 +14649,7 @@
                       "parameters": [
                         "y",
                         "<=",
-                        "wall.BoundingBoxBottom()"
+                        "wall.BoundingBoxBottom()-2"
                       ]
                     }
                   ],
