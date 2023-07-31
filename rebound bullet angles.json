@@ -1661,6 +1661,7 @@
               "actions": [],
               "events": [
                 {
+                  "disabled": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [],
                   "actions": [
@@ -1676,7 +1677,28 @@
                         "Variable(newAngle)",
                         ""
                       ]
-                    },
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "UntitledExtension::CalcBounce2"
+                      },
+                      "parameters": [
+                        "",
+                        "Variable(calc.newX)",
+                        "Variable(calc.newY)",
+                        "wall",
+                        "Variable(newAngle)",
+                        "myCalc",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
                     {
                       "type": {
                         "value": "PrimitiveDrawing::LineV2"
@@ -1689,7 +1711,13 @@
                         "Variable(calc.newY)",
                         "3"
                       ]
-                    },
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
                     {
                       "type": {
                         "value": "TextObject::String"
@@ -1697,7 +1725,7 @@
                       "parameters": [
                         "NewText",
                         "+",
-                        "VariableString(calc.status)+NewLine()"
+                        "VariableString(myCalc.status)+NewLine()"
                       ]
                     }
                   ]
@@ -1705,16 +1733,6 @@
               ]
             }
           ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
@@ -14932,6 +14950,124 @@
               "description": "Angle",
               "name": "Angle",
               "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "fullName": "CalcBounceConditon",
+          "functionType": "Condition",
+          "name": "CalcBounce2",
+          "sentence": "calc bounce _PARAM1_ _PARAM2_ _PARAM3_ _PARAM4_  _PARAM5_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "UntitledExtension::CalcBounce"
+                  },
+                  "parameters": [
+                    "",
+                    "GetArgumentAsNumber(\"x1\")",
+                    "GetArgumentAsNumber(\"y1\")",
+                    "wall",
+                    "GetArgumentAsNumber(\"Angle\")",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "CopyVariableToArgument"
+                  },
+                  "parameters": [
+                    "\"SceneVariable\"",
+                    "calc"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SceneVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "calc.status",
+                    "True"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetReturnBoolean"
+                  },
+                  "parameters": [
+                    "True"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
+            }
+          ],
+          "parameters": [
+            {
+              "description": "x1",
+              "name": "x1",
+              "type": "expression"
+            },
+            {
+              "description": "y1",
+              "name": "y1",
+              "type": "expression"
+            },
+            {
+              "description": "wall",
+              "name": "wall",
+              "type": "objectList"
+            },
+            {
+              "description": "Angle",
+              "name": "Angle",
+              "type": "expression"
+            },
+            {
+              "description": "SceneVariable",
+              "name": "SceneVariable",
+              "type": "scenevar"
             }
           ],
           "objectGroups": []
